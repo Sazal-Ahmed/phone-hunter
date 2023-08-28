@@ -36,9 +36,13 @@ const dispalyPhones = phones =>{
                                 `;
         phoneContainer.appendChild(phoneCard);
     });
+
+    //hide spinner
+    toggleLoading(false);
 }
 //handle search button
 const handleSearch = () =>{
+  toggleLoading(true);
   const searchField = document.getElementById('search-filed');
   const searchText = searchField.value;
   console.log(searchText);
@@ -47,8 +51,19 @@ const handleSearch = () =>{
 }
 
 const handleSearchtwo = () => {
+  toggleLoading(true);
   const serachField = document.getElementById('search-field2');
   const searchText = serachField.value;
   loadPhone(searchText);
+}
+
+const toggleLoading = (isLoading) =>{
+  const loadingSpinner = document.getElementById('loading-spinner');
+  if(isLoading){
+    loadingSpinner.classList.remove('hidden');
+  }
+  else{
+    loadingSpinner.classList.add('hidden');
+  }
 }
 // loadPhone();
