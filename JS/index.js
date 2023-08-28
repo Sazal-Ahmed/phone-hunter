@@ -63,11 +63,10 @@ const ShowDetailsContainer = document.getElementById('show details-contsiner');
 ShowDetailsContainer.innerHTML = `
 <img src="${phone.image}" alt="" >
 <p class="mt-4"><span class ="text-xl text-red-50">Storage:</span> ${phone?.mainFeatures?.storage}</p>
-<p><span class ="text-xl text-red-50">GPS:</span> ${phone?.others?.GPS}</p>
-<p><span class ="text-xl text-red-50">ChipSet:</span> ${phone?.mainFeatures?.chipSet}</p>
-<p ><span class ="text-xl text-red-50">DisplaySize:</span> ${phone?.mainFeatures?.displaySize}</p>
-<p><span class ="text-xl text-red-50">USB:</span> ${phone?.others ?.USB}</p>
-<p><span class ="text-xl text-red-50">WLAN:</span> ${phone?.others ?.WLAN}</p>
+<p><span class ="text-lg text-red-50">GPS:</span> ${phone?.others?.GPS}</p>
+<p><span class ="text-lg text-red-50">ChipSet:</span> ${phone?.mainFeatures?.chipSet}</p>
+<p ><span class ="text-lg text-red-50">DisplaySize:</span> ${phone?.mainFeatures?.displaySize}</p>
+<p><span class ="text-lg text-red-50">WLAN:</span> ${phone?.others ?.WLAN}</p>
       `;
   //show the modal
   my_modal.showModal();
