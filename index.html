@@ -11,11 +11,16 @@
 </head>
 <body>
    <header>
-    <h1 class="text-6xl">THis Is Phone Hunter</h1>
+    <h1 class="text-6xl text-center">Phone Hunter</h1>
    </header> 
    <main class="container mx-auto mt-8">
+    <section class="bg-gray-100 m-4 p-4">
+        <input type="text" placeholder="Search" class="input input-bordered w-full max-w-xs" id="search-filed" />
+        <button class="btn btn-accent" onclick="handleSearch()">Search</button>
+    </section>
+    <!-- Search Result -->
     <section>
-        <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-black">
             
         </div>
     </section>
