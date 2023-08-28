@@ -17,7 +17,6 @@ const dispalyPhones = (phones, isShowAll) =>{
     else{
       showAll.classList.add('hidden');
     }
-    console.log('is show all', isShowAll);
 
     //display only first 6 phones if not show all
     if(!isShowAll){
@@ -32,8 +31,8 @@ const dispalyPhones = (phones, isShowAll) =>{
         <div class="card-body">
           <h2 class="card-title">${phone.phone_name}</h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+          <div class="card-actions justify-center">
+            <button onclick ="handleShowDetail('${phone.slug}');" class="btn btn-primary">Show Details</button>
           </div>
         </div>
                                 `;
@@ -43,12 +42,43 @@ const dispalyPhones = (phones, isShowAll) =>{
     //hide loading spinner
     toggleLoading(false);
 }
+
+// handle ShowDetails
+
+const handleShowDetail = async (id) =>{
+
+ const res = await fetch (`https://openapi.programming-hero.com/api/phone/${id}`);
+ const data = await res.json();
+ const phone = data.data;
+ showPhoneDetails(phone);
+
+}
+
+const showPhoneDetails = (phone) =>{
+  console.log(phone)
+const phoneName = document.getElementById('phone-name');
+phoneName.innerText = phone.name;
+
+const ShowDetailsContainer = document.getElementById('show details-contsiner');
+ShowDetailsContainer.innerHTML = `
+<img src="${phone.image}" alt="" >
+<p class="mt-4"><span class ="text-xl text-red-50">Storage:</span> ${phone?.mainFeatures?.storage}</p>
+<p><span class ="text-xl text-red-50">GPS:</span> ${phone?.others?.GPS}</p>
+<p><span class ="text-xl text-red-50">ChipSet:</span> ${phone?.mainFeatures?.chipSet}</p>
+<p ><span class ="text-xl text-red-50">DisplaySize:</span> ${phone?.mainFeatures?.displaySize}</p>
+<p><span class ="text-xl text-red-50">USB:</span> ${phone?.others ?.USB}</p>
+<p><span class ="text-xl text-red-50">WLAN:</span> ${phone?.others ?.WLAN}</p>
+      `;
+  //show the modal
+  my_modal.showModal();
+
+}
+
 //handle search button
 const handleSearch = (isShowAll) =>{
   toggleLoading(true);
   const searchField = document.getElementById('search-filed');
   const searchText = searchField.value;
-  console.log(searchText);
   loadPhone(searchText, isShowAll);
 
 }
