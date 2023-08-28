@@ -8,6 +8,19 @@ const loadPhone = async(searchText) => {
 const dispalyPhones = phones =>{
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.textContent = '';
+
+    //display show all button
+    const showAll = document.getElementById('show-all');
+    if(phones.length > 12){
+      showAll.classList.remove('hidden');
+    }
+    else{
+      showAll.classList.add('hidden');
+    }
+
+    //display only first 6 phones
+    phones = phones.slice(0,6);
+
     phones.forEach(phone => {
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card p-4 bg-gray-200 shadow-xl`;
@@ -31,5 +44,11 @@ const handleSearch = () =>{
   console.log(searchText);
   loadPhone(searchText);
 
+}
+
+const handleSearchtwo = () => {
+  const serachField = document.getElementById('search-field2');
+  const searchText = serachField.value;
+  loadPhone(searchText);
 }
 // loadPhone();

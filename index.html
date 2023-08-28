@@ -17,12 +17,22 @@
     <section class="bg-gray-100 m-4 p-4">
         <input type="text" placeholder="Search" class="input input-bordered w-full max-w-xs" id="search-filed" />
         <button class="btn btn-accent" onclick="handleSearch()">Search</button>
+
+        <!-- another search field -->
+        <input type="text" placeholder="Search" class="input input-bordered w-full max-w-xs" id="search-field2" />
+        <button class="btn btn-secondary" onclick="handleSearchtwo()">search</button>
     </section>
+
     <!-- Search Result -->
     <section>
         <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-black">
             
         </div>
+
+        <!-- show all button -->
+      <div id="show-all" class="hidden">
+        <button class="btn btn-primary">Show All</button>
+      </div>
     </section>
    </main>
    <footer>
