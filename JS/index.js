@@ -60,8 +60,9 @@ const phoneName = document.getElementById('phone-name');
 phoneName.innerText = phone.name;
 
 const ShowDetailsContainer = document.getElementById('show details-contsiner');
+ShowDetailsContainer.classList = `p-3`
 ShowDetailsContainer.innerHTML = `
-<img src="${phone.image}" alt="" >
+<img class="mx-auto" src="${phone.image}" alt="" >
 <p class="mt-4"><span class ="text-xl text-red-50">Storage:</span> ${phone?.mainFeatures?.storage}</p>
 <p><span class ="text-lg text-red-50">GPS:</span> ${phone?.others?.GPS}</p>
 <p><span class ="text-lg text-red-50">ChipSet:</span> ${phone?.mainFeatures?.chipSet}</p>
